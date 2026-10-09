@@ -1,0 +1,11 @@
+generated: '2026-10-09'
+method: searched
+source: https://docs.centrapay.com/guides/creating-test-money
+docs: https://docs.centrapay.com/guides/creating-test-money
+description: The recommended way to test payment integrations is using the `centrapay.nzd.test` asset. Enable "Test Assets Enabled" at https://app.centrapay.com/config, then Topup to add test funds instantly. No separate sandbox host is documented; test API keys are created per the Getting Started guide.
+test_assets:
+- asset_type: centrapay.nzd.test
+  how: Toggle Test Assets Enabled at https://app.centrapay.com/config, then Topup in the Centrapay app.
+test_keys:
+  docs: https://docs.centrapay.com/guides/getting-started
+  note: Auth docs say "Follow the Getting Started guide to create your own test API key." No key prefix distinction is documented.

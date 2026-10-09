@@ -1,0 +1,33 @@
+generated: '2026-10-09'
+method: searched
+source: https://docs.centrapay.com/api/http-status-codes
+format: custom-json
+envelope:
+  fields: [statusCode, error, message]
+  note: For 403 business rule violations, "message" carries a machine code (e.g. INSUFFICIENT_BALANCE) documented per endpoint.
+problems:
+- status: 400
+  title: Malformed Request
+  type: null
+  description: This is a syntax failure. Don't try again, this is never going to work.
+  remediation: Check content-type application/json, body fields, HTTP verb, query and path parameters and object ID prefixes.
+- status: 401
+  title: Unauthorized
+  description: API key or JWT is missing, expired or invalid.
+  remediation: See https://docs.centrapay.com/api/auth
+- status: 403
+  title: Forbidden
+  description: Resource missing, permission denied or business rule violation.
+  remediation: Check resource id, account membership and role permissions; for business rules read the message code.
+- status: 404
+  title: Route Not Found
+  description: Typo in the URL or HTTP method.
+  remediation: Check against documentation examples.
+- status: 429
+  title: Too Many Requests
+  description: Rate limits exceeded (message RATE_LIMIT_EXCEEDED).
+  remediation: Exponential backoff honouring Retry-After.
+- status: 500
+  title: Server Error
+  description: Something has gone wrong on our end. Retrying should solve the issue.
+  remediation: Retry; report to integrations@centrapay.com.

@@ -1,0 +1,10 @@
+generated: '2026-10-09'
+method: searched
+source: https://docs.centrapay.com/api/http-status-codes
+versioning: none published
+versioning_note: No versioning policy or version scheme is documented; some endpoints carry an "experimental" badge (e.g. Get Account Quotas).
+deprecation: Some legacy or deprecated endpoints may have exceptions to the guidelines documented here. Any such exceptions will be documented on the endpoints.
+deprecated_operations: []
+status_page: null
+status_page_note: status.centrapay.com answered 403; no status page is linked from the docs.
+sla: null

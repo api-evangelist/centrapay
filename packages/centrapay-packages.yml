@@ -1,0 +1,45 @@
+generated: '2026-10-09'
+method: searched
+source: https://registry.npmjs.org/-/v1/search?text=centrapay
+note: Centrapay publishes no first-party API client library on npm. Its @centrapay npm scope holds utility libraries. The merchant e-commerce SDK is a CDN script.
+packages:
+- name: centrapay.js (Centrapay e-commerce SDK)
+  registry: cdn
+  url: https://sdk.centrapay.com/ecommerce/centrapay.js?merchantId={merchantId}
+  language: javascript
+  official: true
+  version: null
+  published: null
+  note: CDN script documented at https://docs.centrapay.com/guides/ecommerce-website (HTTP 200, 426KB). The URL is unpinned (no version in path), so consumers cannot tell which build they get.
+- name: '@centrapay/axios-verror'
+  registry: npm
+  url: https://www.npmjs.com/package/@centrapay/axios-verror
+  language: javascript
+  official: true
+  version: 1.4.3
+  published: '2026-10-04'
+  note: utility (Axios error enhancement), not an API client
+- name: '@centrapay/swift-parser'
+  registry: npm
+  url: https://www.npmjs.com/package/@centrapay/swift-parser
+  language: javascript
+  official: true
+  version: 1.0.2
+  published: '2026-10-04'
+  note: SWIFT MT940/MT942 parser utility, not an API client
+- name: '@centrapay/jest-date-matchers'
+  registry: npm
+  url: https://www.npmjs.com/package/@centrapay/jest-date-matchers
+  language: javascript
+  official: true
+  version: 1.1.4
+  published: '2026-10-04'
+  note: test utility, not an API client
+- name: centrapay-mcp
+  registry: npm
+  url: https://www.npmjs.com/package/centrapay-mcp
+  language: javascript
+  official: false
+  version: 0.2.0
+  published: '2026-06-29'
+  note: third-party (publisher cedricconday, repo github.com/CedricConday/centrapay-mcp)

@@ -1,0 +1,105 @@
+generated: '2026-10-09'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 7
+  own: 6
+  other_domain: 0
+  platform: 1
+  roles:
+  - api
+  - docs
+  - identity
+  - other
+  - source
+  - website
+hosts:
+- host: api.centrapay.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: centrapay.com
+  role: api
+  relation: own
+- host: app.centrapay.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types:
+  - Login
+  serves: []
+  registrable_domain: centrapay.com
+  role: identity
+  relation: own
+- host: centrapay.com
+  found_by:
+  - probed
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: centrapay.com
+  role: other
+  relation: own
+- host: docs.centrapay.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Documentation
+  - APIReference
+  - GettingStarted
+  serves:
+  - docs
+  - cdn
+  - hosting
+  vendor: fastly
+  registrable_domain: centrapay.com
+  role: docs
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - SpectralRules
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: service.centrapay.com
+  found_by:
+  - apis[]
+  - vendor-detect
+  types: []
+  serves:
+  - api
+  - cdn
+  vendor: cloudfront
+  registrable_domain: centrapay.com
+  role: other
+  relation: own
+- host: www.centrapay.com
+  found_by:
+  - pointer
+  types:
+  - Website
+  - Support
+  - Blog
+  - TermsOfService
+  - PrivacyPolicy
+  serves: []
+  registrable_domain: centrapay.com
+  role: website
+  relation: own

@@ -1,0 +1,20 @@
+{
+  "provider": "centrapay",
+  "sources": [
+    "centrapay-openapi.yml"
+  ],
+  "outputs": [
+    "centrapay-payment-requests-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/centrapay-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "centrapay-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "apis.yml register: written (+1 apis, 1 total)"
+  ],
+  "skipped": []
+}

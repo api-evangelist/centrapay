@@ -1,0 +1,24 @@
+name: Centrapay Rate Limits
+generated: '2026-10-09'
+method: searched
+source: https://docs.centrapay.com/api/rate-limits
+limit_count: 1
+limits:
+- name: General rate limit
+  limit_text: The general rate limit is 200rpm
+  max: 200
+  limit: 200
+  window: minute
+  scope: per-account
+  scope_text: Rate limits for authenticated endpoints are applied to the account making the call.
+  note: certain APIs may have a specific lower or higher rate limit; increases by contacting integrations@centrapay.com
+exhaustion:
+  status: 429
+  message: RATE_LIMIT_EXCEEDED
+  headers:
+  - Retry-After
+  retry_after_text: We provide a `Retry-After` header in the response that will inform the number of seconds before the next call will be accepted.
+  backoff: exponential backoff
+quotas:
+  docs: https://docs.centrapay.com/api/quotas
+  note: Account usage quotas (spend, topup; monthly/yearly) are business quotas, enforced with QUOTA_EXCEEDED; not request-rate limits.

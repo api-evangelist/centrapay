@@ -1,0 +1,12 @@
+name: Centrapay Plans and Pricing
+generated: '2026-10-09'
+method: none
+source: https://www.centrapay.com/pricing
+plan_count: 0
+audience: unclear
+pricing_basis: none
+published: false
+delivery:
+  mode: managed
+note: No pricing page is published (www.centrapay.com/pricing returns 404) and the docs publish no API plans; rate limit increases are by contacting integrations@centrapay.com.
+plans: []

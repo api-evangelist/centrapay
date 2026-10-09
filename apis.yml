@@ -1,23 +1,130 @@
 aid: centrapay
+
 name: Centrapay
-description: 'Centrapay is a company surfaced via the API Evangelist harvest backlog (source: spectral-ruleset-github)
-  and added to the network as a stub for full-pipeline profiling.'
+
+description: Centrapay is a payments network that connects existing commerce systems (point-of-sale terminals and checkouts) to digital wallets, tokens and low-cost alternative payments. Its API-first infrastructure lets merchants accept Payap, bank transfers via Open Banking and QR-code rails, brand loyalty points and digital gift cards, bypassing traditional card-network fees. Developers integrate through the Centrapay REST API documented at docs.centrapay.com.
+
 url: https://raw.githubusercontent.com/api-evangelist/centrapay/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:spectral-ruleset-github
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-09 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-09'
+
 modified: '2026-10-09'
+
 tags:
 - Company
-apis: []
+- Payments
+- Digital Wallets
+- Open Banking
+- QR Code Payments
+- Loyalty
+- Gift Cards
+- Fintech
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
+image: https://framerusercontent.com/images/KVxxaI7Lvpyui2d4eS31RH11vZQ.png
+
 common:
+- type: AgenticAccess
+  url: agentic-access/centrapay-agentic-access.yml
+- type: RateLimits
+  url: rate-limits/centrapay-rate-limits.yml
+- type: Spectral
+  url: rules/centrapay-rules.yml
+- type: Spectral
+  url: rules/centrapay-centrapay-docs-spectral-rules.yml
+- type: JSONLD
+  url: json-ld/centrapay-context.jsonld
+- type: Vocabulary
+  url: vocabulary/centrapay-vocabulary.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DataModel
+  url: data-model/centrapay-data-model.yml
+- type: Components
+  url: components/centrapay-components.yml
+- type: Idempotency
+  url: conventions/centrapay-conventions.yml
+- type: Conventions
+  url: conventions/centrapay-conventions.yml
+- type: Sandbox
+  url: sandbox/centrapay-sandbox.yml
+- type: OAuthScopes
+  url: scopes/centrapay-scopes.yml
+- type: Lifecycle
+  url: lifecycle/centrapay-lifecycle.yml
+- type: DeclineCodes
+  url: errors/centrapay-decline-codes.yml
+- type: ErrorCatalog
+  url: errors/centrapay-problem-types.yml
+- type: Conformance
+  url: conformance/centrapay-conformance.yml
+- type: Overlay
+  url: overlays/centrapay-openapi-overlay.yaml
+- type: Hosts
+  url: hosts/centrapay-hosts.yml
+- type: Vendors
+  url: vendors/centrapay-vendors.yml
+- type: SDKs
+  url: packages/centrapay-packages.yml
+- type: Packages
+  url: packages/centrapay-packages.yml
+- type: Authentication
+  url: authentication/centrapay-authentication.yml
+- type: DomainSecurity
+  url: security/centrapay-domain-security.yml
 - type: Website
-  url: https://centrapay.com/
+  url: https://www.centrapay.com/
+- type: SpectralRules
+  url: https://github.com/centrapay/centrapay-docs/blob/636b5947eae1c8b9a6ce2f827bb32daba981b1b3/.spectral.yaml
+- type: Documentation
+  url: https://docs.centrapay.com/
+- type: APIReference
+  url: https://docs.centrapay.com/api/introduction/
+- type: GettingStarted
+  url: https://docs.centrapay.com/guides/getting-started/
+- type: GitHubOrganization
+  url: https://github.com/centrapay
+- type: Support
+  url: https://www.centrapay.com/contact
+- type: Login
+  url: https://app.centrapay.com/
+- type: Blog
+  url: https://www.centrapay.com/blog/nz-tech-expo
+- type: TermsOfService
+  url: https://www.centrapay.com/legal/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://www.centrapay.com/legal/privacy-policy
+
+apis:
+- aid: centrapay:centrapay-payment-requests-api
+  name: Centrapay Payment Requests API
+  description: The payment-requests API from Centrapay — 16 operation(s) for payment-requests.
+  humanURL: https://docs.centrapay.com/api/introduction/
+  baseURL: https://service.centrapay.com
+  tags:
+  - payment-requests
+  properties:
+  - type: OpenAPI
+    url: openapi/centrapay-payment-requests-api-openapi.yml
+  - type: Documentation
+    url: https://docs.centrapay.com/api/introduction/
+x-enrichment:
+  date: '2026-10-09'
+  status: enriched
+  artifacts_added: 64
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=anthropic,regulatory=anthropic

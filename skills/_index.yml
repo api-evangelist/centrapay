@@ -1,0 +1,34 @@
+generated: '2026-10-09'
+method: generated
+source: 'Grounded in openapi/centrapay-openapi.yml; every operationId verified verbatim in the spec. Auth: X-Api-Key header
+  (https://docs.centrapay.com/api/auth). Idempotency: https://docs.centrapay.com/api/idempotency.'
+provider_published:
+- file: provider/centrapay-e-commerce-integration/SKILL.md
+  name: centrapay-e-commerce-integration
+  origin: https://github.com/centrapay/skills/tree/master/centrapay-e-commerce-integration
+  method: searched
+  note: Saved verbatim with references/popup-flow.md and references/redirect-flow.md (HTTP 200 from raw.githubusercontent.com).
+skills:
+- file: centrapay-online-checkout.md
+  name: centrapay-online-checkout
+  api: openapi/centrapay-openapi.yml
+  operations:
+  - createPaymentRequest
+  - getPaymentRequest
+  - voidPaymentRequest
+- file: centrapay-refund-a-payment.md
+  name: centrapay-refund-a-payment
+  api: openapi/centrapay-openapi.yml
+  operations:
+  - getPaymentRequest
+  - listPaymentRequestsByExternalRef
+  - refundPaymentRequest
+  - listPaymentRequestActivities
+- file: centrapay-pre-auth-capture.md
+  name: centrapay-pre-auth-capture
+  api: openapi/centrapay-openapi.yml
+  operations:
+  - createPaymentRequest
+  - getPaymentRequest
+  - confirmPaymentRequest
+  - releasePaymentRequest

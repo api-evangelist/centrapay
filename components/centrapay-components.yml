@@ -1,0 +1,10 @@
+generated: '2026-10-09'
+method: searched
+source: https://docs.centrapay.com/guides/ecommerce-website
+families:
+- name: Centrapay e-commerce checkout (popup)
+  description: The Centrapay SDK enables acceptance of Centrapay payments on your website using the popup method. It handles displaying the Centrapay button, launching the Centrapay checkout, and triggering callbacks.
+  kind: hosted checkout + embeddable button
+  loader: https://sdk.centrapay.com/ecommerce/centrapay.js?merchantId={merchantId}
+loaders:
+- https://sdk.centrapay.com/ecommerce/centrapay.js

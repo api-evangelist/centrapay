@@ -1,0 +1,235 @@
+x-title: Payment Request Model
+type: object
+properties:
+  id:
+    type: string
+    example: VYowvZmuw3hbp1va9xqWx7
+    description: The Payment Request id.
+  shortCode:
+    type: string
+    example: CP-X4V-6N
+    description: A shorter id that can be used to identify the Payment Request for up to two years.
+  url:
+    type: string
+    example: https://app.centrapay.com/pay/VYowvZmuw3hbp1va9xqWx7
+    description: The URL for a Centrapay webpage that allows the user to pay the Payment Request.
+  value:
+    x-type: monetary
+    type: object
+    description: The canonical value of the Payment Request. Must be less than 100000000 and positive.
+    properties:
+      amount:
+        type: string
+      currency:
+        type: string
+  paymentOptions:
+    type: array
+    description: The [Payment Options](#payment-option-model), indicating valid asset for payment.
+    items:
+      $ref: './payment-option.yaml'
+  merchantId:
+    $ref: './merchant.yaml#/properties/merchantId'
+  merchantName:
+    $ref: './merchant.yaml#/properties/merchantName'
+  configId:
+    $ref: './merchant-config.yaml#/properties/configId'
+  status:
+    type: string
+    enum: [new, paid, cancelled, expired]
+    description: 'Valid values: `new`, `paid`, `cancelled`, or `expired`.'
+  liveness:
+    type: string
+    enum: [test, main]
+    description: Indicates liveness of assets that are accepted, determined by the payment options. Values are `main` or `test`.
+  createdAt:
+    type: string
+    format: date-time
+    example: '2023-10-23T22:56:46.145Z'
+    description: When the Payment Request was created.
+  updatedAt:
+    type: string
+    format: date-time
+    example: '2023-10-23T22:56:46.145Z'
+    description: When the Payment Request was updated.
+  expiresAt:
+    type: string
+    format: date-time
+    example: '2023-10-23T22:58:46.145Z'
+    description: When the Payment Request expires.
+  merchantConditions:
+    type: array
+    description: A dynamic list of [Payment Conditions](#payment-condition-model) that require operator approval to complete a payment. Conditions are calculated when [polling a Payment Request](#get-a-payment-request).
+    items:
+      $ref: './payment-condition.yaml'
+  remainingAmount:
+    x-type: bignumber
+    type: string
+    description: The amount of the Payment Request which has not been paid for.
+  patronCodeId:
+    type: string
+    description: The id of a [Patron Code](/api/patron-codes) the Payment Request is attached to.
+  barcode:
+    type: string
+    description: "[Scanned Code](/api/scanned-codes) used to create the Payment Request. Required when the [Quick Pay](/guides/payment-flows/#quick-pay) payment flow is used."
+  barcodeType:
+    type: string
+    description: "Indicates the provider of a barcode, e.g. `ticketek`."
+  collectionId:
+    type: string
+    description: The identifier of the [Token Collection](/api/tokens).
+  expirySeconds:
+    type: integer
+    description: The expiry seconds used to configure the Payment Request expiry.
+  lineItems:
+    type: array
+    description: The [Line Items](#line-item-model) being paid for.
+    example:
+      - name: Hard Hat
+        sku: GH1234
+        qty: '1'
+        price: '4000'
+        tax: '15'
+        discount: '400'
+      - name: Tool Belt
+        sku: GH1234
+        qty: '1'
+        price: '6000'
+        tax: '15'
+        discount: '600'
+    items:
+      $ref: './line-item.yaml'
+  purchaseOrderRef:
+    type: string
+    description: A reference to a purchase order for this Payment Request.
+  invoiceRef:
+    type: string
+    description: A reference to an invoice for this Payment Request. Must be less than or equal to 128 characters.
+  redirectCancelUrl:
+    type: string
+    x-experimental: true
+    description: URL to redirect the user to after they cancel the Payment Request. Must start with one of the allowedRedirectUrls for the [Merchant Config](/api/merchant-configs).
+  redirectPaidUrl:
+    type: string
+    x-experimental: true
+    description: URL to redirect the user to after they pay the Payment Request. Must start with one of the allowedRedirectUrls for the [Merchant Config](/api/merchant-configs).
+  externalRef:
+    type: string
+    description: An external reference to the Payment Request.
+  terminalId:
+    type: string
+    description: The software or logical id of the payment terminal.
+  deviceId:
+    type: string
+    description: The hardware id or serial number of the payment terminal.
+  operatorId:
+    type: string
+    description: POS operator Id.
+  createdByAccountId:
+    type: string
+    description: Id of the [Centrapay Account](/api/accounts) creating the Payment Request.
+  createdByAccountName:
+    type: string
+    description: Name of the [Centrapay Account](/api/accounts) creating the Payment Request.
+  conditionsEnabled:
+    type: boolean
+    description: Flag to indicate that a merchant is able to accept [Payment Conditions](#payment-condition-model).
+  patronNotPresent:
+    type: boolean
+    description: "Flag to indicate the patron is not physically present. This may affect payment conditions or available [Payment Options](#payment-option-model)."
+  cancellationReason:
+    type: string
+    description: The reason that the Payment Request was cancelled. See [Cancellation Reasons](#cancellation-reasons) for possible values.
+  preAuth:
+    type: boolean
+    description: Flag to indicate if the request is a Pre Auth for supported [Asset Types](/api/asset-types).
+  preAuthExpiresAt:
+    type: string
+    format: date-time
+    description: Pre Auth completions and releases will be accepted until this time.
+  preAuthStatus:
+    type: string
+    description: Describes which state a Pre Auth Payment Request is in. Valid values are `authorized` or `released`.
+  taxNumber:
+    type: object
+    description: The value-added tax configuration for the [Business](/api/businesses) that the [Merchant](/api/merchants) belongs to. See [Tax Number](/api/businesses#tax-number-model).
+  partialAllowed:
+    type: boolean
+    description: Flag to indicate that the Payment Request can be paid for partially.
+  paidBy:
+    type: object
+    description: Shows the [Paid By](#paid-by-model) when a Payment Request is paid for with multiple Assets.
+  basketAmount:
+    x-type: bignumber
+    type: string
+    description: "The total amount of the transaction including non Centrapay payment methods. Required when `partialAllowed` is `true`."
+  connectionId:
+    type: string
+    example: cn_9asd9k19
+    x-experimental: true
+    description: The identifier of the [Connection](/api/connections) associated with the payment request.
+  connectionStatus:
+    type: string
+    x-experimental: true
+    description: The status of the [Connection](/api/connections) associated with the payment request.
+  paymentLinkId:
+    type: string
+    example: pl_5srt998b
+    x-experimental: true
+    description: The identifier of the [Payment Link](/api/payment-links).
+
+x-examples:
+  PaymentRequestBody:
+    value:
+      configId: mc_5efbe2fb96c08357bb2b9242
+      expirySeconds: 120
+      value:
+        amount: '10000'
+        currency: NZD
+      lineItems:
+        - name: Hard Hat
+          sku: GH1234
+          qty: '1'
+          price: '4000'
+          tax: '15'
+          discount: '400'
+        - name: Tool Belt
+          sku: GH1234
+          qty: '1'
+          price: '6000'
+          tax: '15'
+          discount: '600'
+      connectionId: cn_9asd9k19
+      paymentLinkId: pl_5srt998b
+  PaymentRequestResponse:
+    value:
+      id: VYowvZmuw3hbp1va9xqWx7
+      shortCode: CP-X4V-6N
+      url: https://app.centrapay.com/pay/VYowvZmuw3hbp1va9xqWx7
+      merchantId: 5efbe17d96c083633e2b9241
+      merchantName: NZD Test Merchant
+      configId: mc_5efbe2fb96c08357bb2b9242
+      value:
+        amount: '10000'
+        currency: NZD
+      status: new
+      liveness: test
+      expirySeconds: 120
+      createdAt: '2023-10-23T22:56:46.145Z'
+      updatedAt: '2023-10-23T22:56:46.145Z'
+      expiresAt: '2023-10-23T22:58:46.145Z'
+      lineItems:
+        - name: Hard Hat
+          sku: GH1234
+          qty: '1'
+          price: '4000'
+          tax: '15'
+          discount: '400'
+        - name: Tool Belt
+          sku: GH1234
+          qty: '1'
+          price: '6000'
+          tax: '15'
+          discount: '600'
+      connectionId: cn_9asd9k19
+      connectionStatus: active
+      paymentLinkId: pl_5srt998b

@@ -1,0 +1,67 @@
+generated: '2026-10-09'
+method: searched
+source:
+- https://www.centrapay.com/legal/privacy-policy
+- https://www.centrapay.com/legal/terms-and-conditions
+signals:
+  data_subject_request:
+    url: https://www.centrapay.com/legal/privacy-policy
+    section: Data Subject Rights
+    channel: support@centrapay.com
+    stated_sla: 'We will respond no later than 20 working days.'
+    rights_named: [access, correction, deletion, objection and restriction of processing, withdrawal of consent]
+    evidence:
+    - source: https://www.centrapay.com/legal/privacy-policy
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: 'To exercise these rights, contact us at: support@centrapay.com. We will respond no later than 20 working days.'
+    - source: https://www.centrapay.com/legal/privacy-policy
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: 'Please note, to exercise any of these rights in relation to personal information we process on behalf of our customers (such as financial institutions), you will need to contact those customers directly, following the steps outlined in their privacy policies.'
+    note: >-
+      A named channel and a stated 20-working-day response window for access, correction, deletion,
+      objection/restriction and consent withdrawal. Requests about data Centrapay processes for its
+      customers (e.g. financial institutions) are routed to those customers.
+  data_retention:
+    url: https://www.centrapay.com/legal/privacy-policy
+    section: Data Retention
+    evidence:
+    - source: https://www.centrapay.com/legal/privacy-policy
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: 'We retain your personal information only for as long as necessary to fulfil the purposes we collected it for, including for legal, accounting, or reporting requirements.'
+    - source: https://www.centrapay.com/legal/privacy-policy
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: 'Biometric information: retained only to complete the verification and for compliance purposes, and then deleted securely after seven years.'
+    note: >-
+      Purpose-bound retention with concrete periods for some categories: contact form submissions and job
+      applications 12 months, biometric information deleted after seven years.
+  data_residency:
+    url: https://www.centrapay.com/legal/privacy-policy
+    section: International Data Transfers
+    evidence:
+    - source: https://www.centrapay.com/legal/privacy-policy
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: 'When we transfer your information outside Centrapay, it may be to a company in New Zealand or overseas. Our contract with the company will require the company to protect your personal information.'
+    note: >-
+      Discloses that data may leave New Zealand, protected contractually; no residency commitment or named
+      regions is given.
+  subprocessors:
+    url: https://www.centrapay.com/legal/privacy-policy
+    section: Sharing Your Information
+    published_list: false
+    evidence:
+    - source: https://www.centrapay.com/legal/privacy-policy
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: 'Our service providers (e.g., cloud storage, recruitment platforms, analytics) so that we can provide our services.'
+    - source: https://www.centrapay.com/legal/privacy-policy
+      http_status: 200
+      fetched: '2026-10-09'
+      quote: 'We ensure that appropriate safeguards and contracts are in place before sharing any personal information. We do not sell, lease, or trade biometric information.'
+    note: >-
+      Service-provider sharing is disclosed by category only; no named subprocessor list was found on the
+      legal pages.

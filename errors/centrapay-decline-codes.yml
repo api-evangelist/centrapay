@@ -1,0 +1,19 @@
+generated: '2026-10-09'
+method: searched
+source: https://docs.centrapay.com/api/payment-requests
+note: Codes read from the Pay Payment Request 403 responses in Centrapay's own published OpenAPI (centrapay/centrapay-docs src/content/api/openapi, rendered at the source page). Actions are the documented descriptions only; Centrapay does not document buyer masking.
+envelope: message
+http_status: 403
+decline_codes:
+- {code: INVALID_ASSET_TYPE, meaning: Either the merchant is not configured with the provided asset type or the asset type does not exist., action: null}
+- {code: REQUEST_EXPIRED, meaning: Action cannot be completed because the request has expired., action: null}
+- {code: REQUEST_PAID, meaning: Action cannot be completed because the request has been paid., action: null}
+- {code: REQUEST_CANCELLED, meaning: Action cannot be completed because the request has already been cancelled., action: null}
+- {code: INACTIVE_ASSET, meaning: 'The asset is not spendable. It may have been disabled, expired, or already spent.', action: null}
+- {code: INVALID_MERCHANT_CONFIG, meaning: The merchant is not configured properly to satisfy the Payment Request., action: null}
+- {code: QUOTA_EXCEEDED, meaning: The payment pay request exceeds the allowed spend quota supplied., action: null}
+- {code: INSUFFICIENT_ASSET_VALUE, meaning: The asset has insufficient funds to pay the Payment Request or the transaction amount received by Centrapay is less than the total of the payment., action: null}
+- {code: ASSET_REDEMPTION_DENIED, meaning: 'The asset redemption has been unsuccessful due to an error with provided payment parameters, the Merchant, or the Asset.', action: null}
+- {code: PAYMENT_DECLINED, meaning: The payment parameters were valid but payment was declined because additional payment restrictions were violated., action: null}
+- {code: PAYMENT_UNCONFIRMED, meaning: Confirmation of payment success or failure was not received from the provider within the expected time., action: null}
+- {code: REMAINING_AMOUNT_EXCEEDED, meaning: The payment amount exceeds the remaining amount on the Payment Request., action: null}

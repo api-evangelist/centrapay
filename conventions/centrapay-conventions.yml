@@ -1,0 +1,67 @@
+generated: '2026-10-09'
+method: searched
+source: https://docs.centrapay.com/api/introduction
+auth:
+  style: X-Api-Key header or Authorization user access token (OIDC); X-Centrapay-Account header for org accounts
+  docs: https://docs.centrapay.com/api/auth
+  see: authentication/centrapay-authentication.yml
+idempotency:
+  coverage: partial
+  mechanism: request header / body token declared in the OpenAPI
+  docs: https://docs.centrapay.com/api/idempotency
+  text: Several Centrapay APIs support Idempotency. Those that do, accept an idempotencyKey property in the request payload.
+  scope:
+  - payPaymentRequest
+  - refundPaymentRequest
+  - confirmPaymentRequest
+  refund_note: Refund requests must provide an externalRef that is unique for all refunds made against the Payment Request (https://docs.centrapay.com/guides/initiating-refunds).
+  retention: null
+  header: idempotencyKey
+  evidence: idempotencyKey on 2 of 8 mutating operations
+  verified: derived
+pagination:
+  style: cursor
+  request_param: pageKey
+  response_fields:
+  - items
+  - nextPageKey
+  note: pageKey must be URL-encoded
+  docs: https://docs.centrapay.com/api/pagination
+errors:
+  envelope:
+  - statusCode
+  - error
+  - message
+  docs: https://docs.centrapay.com/api/http-status-codes
+  see: errors/centrapay-problem-types.yml
+rate_limit_signaling:
+  status: 429
+  headers:
+  - Retry-After
+  see: rate-limits/centrapay-rate-limits.yml
+versioning:
+  documented: false
+  note: No API versioning policy is published; http-status-codes page mentions legacy or deprecated endpoints may have documented exceptions.
+object_ids:
+  docs: https://docs.centrapay.com/api/object-ids
+webhooks:
+  docs: https://docs.centrapay.com/guides/webhooks
+reversibility:
+  status: verified
+  surfaces:
+  - surface: payment request
+    operation: voidPaymentRequest
+    reversal: void
+    window: The void window is closed 24 hours after the Payment Request `createdAt`.
+    docs: https://docs.centrapay.com/api/payment-requests
+  - surface: payment
+    operation: refundPaymentRequest
+    reversal: refund
+    window: null
+    note: Partial or full; total refunded amount cannot exceed the paid amount. No time window stated.
+    docs: https://docs.centrapay.com/guides/initiating-refunds
+  - surface: pre-auth hold
+    operation: releasePaymentRequest
+    reversal: release
+    window: until preAuthExpiresAt (PRE_AUTH_RELEASED once it has passed)
+    docs: https://docs.centrapay.com/api/payment-requests

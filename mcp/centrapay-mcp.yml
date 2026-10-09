@@ -1,0 +1,137 @@
+name: Centrapay MCP (candidate)
+type: MCPServer
+generated: '2026-10-09'
+method: derived
+source: 'openapi/centrapay-openapi.yml (16 operations). No official Centrapay MCP server found: web search for "Centrapay
+  MCP server" returned no Centrapay results; github.com/centrapay org (16 repos) has no MCP repo; preflight mcp_tool_table
+  empty for centrapay.com, docs.centrapay.com, app.centrapay.com.'
+status: candidate
+deployment:
+  mode: none
+  auth: api-key
+  verified: derived
+note: Nobody ships a Centrapay MCP server. Tools below are a candidate set derived one-to-one from the OpenAPI operations;
+  they are not served anywhere.
+auth:
+  scheme: ApiKey
+  in: header
+  name: X-Api-Key
+  docs: https://docs.centrapay.com/api/auth
+api_base: https://service.centrapay.com
+related_agent_surfaces:
+- type: AgentSkill
+  url: https://github.com/centrapay/skills
+  note: Centrapay publishes an Agent Skill (centrapay-e-commerce-integration), saved verbatim under skills/provider/.
+tools:
+- name: create_payment_request
+  description: Create a Payment Request
+  operationId: createPaymentRequest
+  method: POST
+  path: /api/payment-requests
+  readOnly: false
+  destructive: false
+- name: get_payment_request
+  description: Get a Payment Request
+  operationId: getPaymentRequest
+  method: GET
+  path: /api/payment-requests/{paymentRequestId}
+  readOnly: true
+  destructive: false
+- name: get_payment_request_by_short_code
+  description: Get a Payment Request by Short Code
+  operationId: getPaymentRequestByShortCode
+  method: GET
+  path: /api/payment-requests/short-code/{shortCode}
+  readOnly: true
+  destructive: false
+- name: get_payment_request_by_patron_code
+  description: Get a Payment Request linked to a Patron Code
+  operationId: getPaymentRequestByPatronCode
+  method: GET
+  path: /api/me/patron-code-payment-request
+  readOnly: true
+  destructive: false
+- name: get_payment_request_by_connection_id
+  description: Get a Payment Request by Connection Id
+  operationId: getPaymentRequestByConnectionId
+  method: GET
+  path: /api/connections/{connectionId}/latest-payment-request
+  readOnly: true
+  destructive: false
+- name: list_payment_requests_by_external_ref
+  description: List Payment Requests by External Reference
+  operationId: listPaymentRequestsByExternalRef
+  method: GET
+  path: /api/payment-requests/external-ref/{externalRef}
+  readOnly: true
+  destructive: false
+- name: get_payment_request_summary
+  description: Get Payment Request Summary
+  operationId: getPaymentRequestSummary
+  method: GET
+  path: /api/payment-requests/{paymentRequestId}/summary
+  readOnly: true
+  destructive: false
+- name: pay_payment_request
+  description: Pay a Payment Request
+  operationId: payPaymentRequest
+  method: POST
+  path: /api/payment-requests/{paymentRequestId}/pay
+  readOnly: false
+  destructive: false
+- name: refund_payment_request
+  description: Refund a Payment Request
+  operationId: refundPaymentRequest
+  method: POST
+  path: /api/payment-requests/{paymentRequestId}/refund
+  readOnly: false
+  destructive: true
+- name: void_payment_request
+  description: Void a Payment Request
+  operationId: voidPaymentRequest
+  method: POST
+  path: /api/payment-requests/{paymentRequestId}/void
+  readOnly: false
+  destructive: true
+- name: release_payment_request
+  description: Release Pre Auth funds
+  operationId: releasePaymentRequest
+  method: POST
+  path: /api/payment-requests/{paymentRequestId}/release
+  readOnly: false
+  destructive: true
+- name: confirm_payment_request
+  description: Confirm Pre Auth Payment Request
+  operationId: confirmPaymentRequest
+  method: POST
+  path: /api/payment-requests/{paymentRequestId}/confirm
+  readOnly: false
+  destructive: false
+- name: list_payment_activities
+  description: List Payment Activities for a Merchant
+  operationId: listPaymentActivities
+  method: GET
+  path: /api/payment-activities
+  readOnly: true
+  destructive: false
+- name: list_payment_request_activities
+  description: List Payment Activities for a Payment Request
+  operationId: listPaymentRequestActivities
+  method: GET
+  path: /api/payment-requests/{paymentRequestId}/activities
+  readOnly: true
+  destructive: false
+- name: accept_payment_condition
+  description: Accept a Payment Condition
+  operationId: acceptPaymentCondition
+  method: POST
+  path: /api/payment-requests/{paymentRequestId}/conditions/{conditionId}/accept
+  readOnly: false
+  destructive: false
+- name: decline_payment_condition
+  description: Decline a Payment Condition
+  operationId: declinePaymentCondition
+  method: POST
+  path: /api/payment-requests/{paymentRequestId}/conditions/{conditionId}/decline
+  readOnly: false
+  destructive: true

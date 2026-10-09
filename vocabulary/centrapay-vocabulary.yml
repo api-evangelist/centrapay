@@ -1,0 +1,15 @@
+generated: '2026-10-09'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/centrapay-openapi.yml
+vocabulary:
+  name: Centrapay Domain Vocabulary
+  description: 'Terms declared by Centrapay''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-09'
+  terms:
+  - term: ApiError
+    definition: 'Object declared by the contract with fields: message.'
+    tags:
+    - Object
+    source: openapi/centrapay-openapi.yml#/components/schemas/ApiError

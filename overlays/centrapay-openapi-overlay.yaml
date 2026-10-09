@@ -1,0 +1,124 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements overlay for Centrapay API
+  version: 1.0.0
+extends: ../openapi/_original/centrapay-openapi.yml
+x-generated: '2026-10-09'
+x-method: generated
+x-source: openapi/centrapay-openapi.yml
+x-rationale: The spec declares an ApiKey (X-Api-Key header) securityScheme but no root security requirement, and 16 operations
+  carry no agent hints. This overlay adds the root requirement, documentation links for auth/idempotency/rate limits, and
+  x-agent hints (read-only vs money-moving) without mutating the original.
+actions:
+- target: $
+  description: 'Apply the declared ApiKey scheme as the root security requirement (docs: https://docs.centrapay.com/api/auth).'
+  update:
+    security:
+    - ApiKey: []
+- target: $.info
+  description: Link the cross-cutting convention pages from the Centrapay docs index.
+  update:
+    x-docs:
+      auth: https://docs.centrapay.com/api/auth
+      api_keys: https://docs.centrapay.com/api/api-keys
+      idempotency: https://docs.centrapay.com/api/idempotency
+      rate_limits: https://docs.centrapay.com/api/rate-limits
+      pagination: https://docs.centrapay.com/api/pagination
+      http_status_codes: https://docs.centrapay.com/api/http-status-codes
+- target: $.paths['/api/payment-requests'].post
+  description: Agent hints for createPaymentRequest.
+  update:
+    x-agent:
+      readOnly: false
+      movesMoney: false
+- target: $.paths['/api/payment-requests/{paymentRequestId}'].get
+  description: Agent hints for getPaymentRequest.
+  update:
+    x-agent:
+      readOnly: true
+      movesMoney: false
+- target: $.paths['/api/payment-requests/short-code/{shortCode}'].get
+  description: Agent hints for getPaymentRequestByShortCode.
+  update:
+    x-agent:
+      readOnly: true
+      movesMoney: false
+- target: $.paths['/api/me/patron-code-payment-request'].get
+  description: Agent hints for getPaymentRequestByPatronCode.
+  update:
+    x-agent:
+      readOnly: true
+      movesMoney: false
+- target: $.paths['/api/connections/{connectionId}/latest-payment-request'].get
+  description: Agent hints for getPaymentRequestByConnectionId.
+  update:
+    x-agent:
+      readOnly: true
+      movesMoney: false
+- target: $.paths['/api/payment-requests/external-ref/{externalRef}'].get
+  description: Agent hints for listPaymentRequestsByExternalRef.
+  update:
+    x-agent:
+      readOnly: true
+      movesMoney: false
+- target: $.paths['/api/payment-requests/{paymentRequestId}/summary'].get
+  description: Agent hints for getPaymentRequestSummary.
+  update:
+    x-agent:
+      readOnly: true
+      movesMoney: false
+- target: $.paths['/api/payment-requests/{paymentRequestId}/pay'].post
+  description: Agent hints for payPaymentRequest.
+  update:
+    x-agent:
+      readOnly: false
+      movesMoney: true
+      idempotency: Body field idempotencyKey is required (spec).
+- target: $.paths['/api/payment-requests/{paymentRequestId}/refund'].post
+  description: Agent hints for refundPaymentRequest.
+  update:
+    x-agent:
+      readOnly: false
+      movesMoney: true
+- target: $.paths['/api/payment-requests/{paymentRequestId}/void'].post
+  description: Agent hints for voidPaymentRequest.
+  update:
+    x-agent:
+      readOnly: false
+      movesMoney: true
+- target: $.paths['/api/payment-requests/{paymentRequestId}/release'].post
+  description: Agent hints for releasePaymentRequest.
+  update:
+    x-agent:
+      readOnly: false
+      movesMoney: true
+- target: $.paths['/api/payment-requests/{paymentRequestId}/confirm'].post
+  description: Agent hints for confirmPaymentRequest.
+  update:
+    x-agent:
+      readOnly: false
+      movesMoney: true
+- target: $.paths['/api/payment-activities'].get
+  description: Agent hints for listPaymentActivities.
+  update:
+    x-agent:
+      readOnly: true
+      movesMoney: false
+- target: $.paths['/api/payment-requests/{paymentRequestId}/activities'].get
+  description: Agent hints for listPaymentRequestActivities.
+  update:
+    x-agent:
+      readOnly: true
+      movesMoney: false
+- target: $.paths['/api/payment-requests/{paymentRequestId}/conditions/{conditionId}/accept'].post
+  description: Agent hints for acceptPaymentCondition.
+  update:
+    x-agent:
+      readOnly: false
+      movesMoney: false
+- target: $.paths['/api/payment-requests/{paymentRequestId}/conditions/{conditionId}/decline'].post
+  description: Agent hints for declinePaymentCondition.
+  update:
+    x-agent:
+      readOnly: false
+      movesMoney: false

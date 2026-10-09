@@ -1,0 +1,40 @@
+generated: '2026-10-09'
+method: searched
+source: https://docs.centrapay.com/api/auth
+docs: https://docs.centrapay.com/api/auth
+summary:
+  types:
+  - apiKey
+  - openIdConnect
+  api_key_in:
+  - header
+schemes:
+- name: ApiKey
+  type: apiKey
+  in: header
+  parameter: X-Api-Key
+  description: API Keys provide enduring access to a single Centrapay account. Roles "account-owner" and "merchant-terminal".
+  docs: https://docs.centrapay.com/api/api-keys
+  sources:
+  - openapi/centrapay-openapi.yml
+  - https://docs.centrapay.com/api/auth
+- name: UserAccessToken
+  type: openIdConnect
+  in: header
+  parameter: Authorization
+  openIdConnectUrl: https://auth.centrapay.com/.well-known/openid-configuration
+  flow: authorization_code with PKCE
+  description: User access tokens provide time-limited access to all Centrapay accounts for which the user is a member. Issued using OIDC code flow via auth.centrapay.com. Access Token expires after 1 hour; Refresh Token expires after 60 days or when revoked. OAuth client ids with whitelisted redirect URIs are obtained by contacting Centrapay support.
+  token_lifetimes:
+    access_token: Expires after 1 hour.
+    refresh_token: Expires after 60 days or when revoked.
+  not_in_spec: true
+  sources:
+  - https://docs.centrapay.com/api/auth
+headers:
+- name: X-Centrapay-Account
+  description: Required for Org Accounts accessed with a user access token; specifies the unique identifier of the Centrapay Org Account.
+authorization_model:
+  style: role-based permissions
+  roles: [Account Owner, Anon Consumer, Merchant Terminal, External Asset Provider, Cashier]
+  docs: https://docs.centrapay.com/api/auth#permissions

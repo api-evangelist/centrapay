@@ -1,0 +1,25 @@
+generated: '2026-10-09'
+method: searched
+source: https://docs.centrapay.com/api/auth
+standards:
+- id: oidc
+  conforms: true
+  evidence: Access tokens are issued using OIDC code flow via the Centrapay OAuth authorization server and login page at auth.centrapay.com ...
+    it must support OIDC authorization code flow with PKCE. Discovery document https://auth.centrapay.com/.well-known/openid-configuration answered
+    HTTP 200.
+- id: oauth2-pkce
+  conforms: true
+  evidence: 'https://docs.centrapay.com/api/auth: "it must support OIDC authorization code flow with PKCE"'
+- id: idempotency
+  conforms: partial
+  evidence: 'https://docs.centrapay.com/api/idempotency: idempotencyKey property in the request payload on several APIs (body field, not the IETF
+    Idempotency-Key header)'
+- id: openapi-3.0
+  conforms: true
+  evidence: the document declares 3.0.0
+- id: oauth2
+  conforms: false
+  evidence: 'securitySchemes: ApiKey (apiKey)'
+- id: rfc9457
+  conforms: false
+  evidence: no response declares application/problem+json
