@@ -22,6 +22,15 @@ modified: '2026-10-09'
 tags:
 - Company
 - Payments
+- Digital Wallet
+- Open Banking
+- QR Code Payments
+- Loyalty
+- Gift Cards
+- Fintech
+tags_raw:
+- Company
+- Payments
 - Digital Wallets
 - Open Banking
 - QR Code Payments
@@ -116,6 +125,8 @@ apis:
   humanURL: https://docs.centrapay.com/api/introduction/
   baseURL: https://service.centrapay.com
   tags:
+  - Payment Requests
+  tags_raw:
   - payment-requests
   properties:
   - type: OpenAPI
