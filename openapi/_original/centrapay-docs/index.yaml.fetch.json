@@ -1,0 +1,12 @@
+{
+ "url": "https://raw.githubusercontent.com/centrapay/centrapay-docs/master/src/content/api/openapi/index.yaml",
+ "requested_url": "https://raw.githubusercontent.com/centrapay/centrapay-docs/master/src/content/api/openapi/index.yaml",
+ "status": 200,
+ "content_type": "text/plain; charset=utf-8",
+ "bytes": 8842,
+ "sha256": "ac48efe873b25df089949d0cd96e95eb054444d47d91688543792f923d1e4455",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
