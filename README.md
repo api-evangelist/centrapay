@@ -64,5 +64,149 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Centrapay is a company surfaced via the API Evangelist harvest backlog (source: spectral-ruleset-github) and added to the network as a stub for full-pipeline profiling.
-- https://centrapay.com/
+Centrapay is a payments network that connects existing commerce systems (point-of-sale terminals and checkouts) to digital wallets, tokens and low-cost alternative payments. Its API-first infrastructure lets merchants accept Payap, bank transfers via Open Banking and QR-code rails, brand loyalty points and digital gift cards, bypassing traditional card-network fees. Developers integrate through the Centrapay REST API documented at docs.centrapay.com.
+
+**Areas:** Company · Payments · Digital Wallet · Open Banking · QR Code Payments · Loyalty · Gift Cards · Fintech
+
+## Centrapay on APIs.io
+
+Everything profiled for Centrapay is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/centrapay/](https://apis.io/providers/centrapay/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Centrapay Payment Requests API](https://apis.io/apis/centrapay/centrapay-payment-requests-api/) — The payment-requests API from Centrapay — 16 operation(s) for payment-requests.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Centrapay MCP (candidate)](https://apis.io/servers/centrapay/centrapay-mcp-candidate/)
+
+#### Agent skills (1)
+
+Agent skills built on the API.
+
+- [centrapay-e-commerce-integration](https://apis.io/agent-skills/centrapay/centrapay-e-commerce-integration/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Centrapay Agentic Access](https://apis.io/agentic-access/centrapay/centrapay-agentic-access/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Centrapay Context](https://apis.io/jsonld/centrapay/centrapay-context/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Centrapay Openapi Overlay](https://apis.io/overlays/centrapay/centrapay-openapi-overlay/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Centrapay — centrapay docs rules](https://apis.io/rules/centrapay/centrapay-centrapay-docs-spectral-rules/)
+- [Centrapay API Rules](https://apis.io/rules/centrapay/centrapay-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Centrapay Authentication](https://apis.io/security/centrapay/centrapay-authentication/)
+- [Centrapay Domain Security](https://apis.io/security/centrapay/centrapay-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Centrapay Scopes](https://apis.io/scopes/centrapay/centrapay-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Centrapay Plans Pricing](https://apis.io/plans/centrapay/centrapay-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Centrapay Rate Limits](https://apis.io/rate-limits/centrapay/centrapay-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.centrapay.com/)
+- [Documentation](https://docs.centrapay.com/)
+- [Getting started](https://docs.centrapay.com/guides/getting-started/)
+- [API reference](https://docs.centrapay.com/api/introduction/)
+- [Support](https://www.centrapay.com/contact)
+- [Blog](https://www.centrapay.com/blog/nz-tech-expo)
+- [Terms of service](https://www.centrapay.com/legal/terms-and-conditions)
+- [Privacy policy](https://www.centrapay.com/legal/privacy-policy)
+- [GitHub](https://github.com/centrapay)
+
+## API Evangelist rating
+
+**Kin Score 47.9** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 51.8 |
+| Contract governance | 35.6 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 63.7 |
+| Access clarity | 34.2 |
+
+**Agent readiness 42.0** — agent-native
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | verified |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | verified |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 31.3** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/centrapay/](https://apis.io/providers/centrapay/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Centrapay: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/centrapay/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
